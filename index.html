@@ -29,7 +29,6 @@ finally:
 def package_python_script():
     subprocess.run(['pyinstaller', '--noconfirm', '--onefile', '--noconsole', '--windowed', '--distpath=./', '--workpath=./temp_build', '--add-data', f'{vbs_file_path};.', 'run_vbs.py'])
     shutil.rmtree('./temp_build')
-    os.remove('run_vbs.py')
     os.remove('run_vbs.spec')
 
 while True:
