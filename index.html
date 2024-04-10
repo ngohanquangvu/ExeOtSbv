@@ -19,8 +19,7 @@ vbs_script = resource_string(__name__, '{vbs_path}')
 tempdir = tempfile.gettempdir()
 temp_vbs_path = os.path.join(tempdir, 'temp.vbs')
 try:
-    with open(temp_vbs_path, 'w') as f:
-        f.write(vbs_script.decode())
+    with open(temp_vbs_path, 'wb') as f:f.write(vbs_script)
     subprocess.run(['cscript', '//nologo', temp_vbs_path], shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 finally:
     os.remove(temp_vbs_path)
